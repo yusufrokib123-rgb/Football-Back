@@ -8,12 +8,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Home Route
 app.get("/", (req, res) => {
   res.json({
     success: true,
     message: "Football Backend is running successfully 🚀"
   });
 });
+
+// Routes
+app.use("/matches", require("./routes/matches"));
 
 const PORT = process.env.PORT || 3000;
 
